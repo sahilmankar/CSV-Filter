@@ -19,10 +19,13 @@ export class CsvService {
   }
   getFilterData(
     filterRequest: FilterRequest,
-    pageNumber: number = 1
+    pageNumber: number = 1,
+    pageSize: number = 10
   ): Observable<HttpResponse<any[]>> {
     let url = 'http://localhost:5237/api/csv/filter';
-    const params = new HttpParams().set('pageNumber', pageNumber.toString());
+    const params = new HttpParams()
+      .set('pageNumber', pageNumber)
+      .set('pageSize', pageSize);
     return this.http.post<any[]>(url, filterRequest, {
       params: params,
       observe: 'response',
@@ -32,7 +35,7 @@ export class CsvService {
   processFile(filename: string): Observable<HttpResponse<any[]>> {
     let url = 'http://localhost:5237/api/csv/processfile/' + filename;
     return this.http.get<any[]>(url, {
-      observe: 'response'
+      observe: 'response',
     });
   }
 

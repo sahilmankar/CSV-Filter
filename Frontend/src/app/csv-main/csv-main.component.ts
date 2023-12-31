@@ -43,11 +43,13 @@ export class CsvMainComponent {
     });
   }
 
-  getFilterData(pageNumber: number = 1) {
+  getFilterData(pageInfo:any) {
+    let pageNumber=pageInfo.page;
+    let pageSize=pageInfo.pageSize;
     let newfilterreq = this.filtersvc.removeDefaultFilterValues(
       this.filterRequest
     );
-    this.csvSvc.getFilterData(newfilterreq, pageNumber).subscribe((res) => {
+    this.csvSvc.getFilterData(newfilterreq, pageNumber,pageSize).subscribe((res) => {
       this.data = res.body ?? [];
       this.paginationData = this.filtersvc.getPaginationHeader(res);
     });

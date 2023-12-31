@@ -36,6 +36,7 @@ public class CsvService : ICsvService
         _cache.Set("type", type);
         if (properties == null)
         {
+            
             return null;
         }
         var li = CsvReaderHelper.PopulateListWithData(data, properties, type);

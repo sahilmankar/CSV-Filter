@@ -12,7 +12,7 @@ public class CsvToClass
             data = lines.Skip(1).ToArray();
             className = Path.GetFileNameWithoutExtension(filePath);
 
-            string code = String.Format("public class {0} {{ \n",  className);
+            string code = String.Format(" using System; \n public class {0} {{ \n",  className);
 
             for (int columnIndex = 0; columnIndex < columnNames.Length; columnIndex++)
             {

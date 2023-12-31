@@ -1,4 +1,4 @@
-<div class=" row d-flex">
+<div class=" row d-flex" *ngIf="equalPropertiesDataSources.length>0">
     <div class="col-2 p-2  text-center card shadow rounded-3  mx-3">
         <div class=" btn btn-light  my-1  " *ngFor="let property of equalPropertiesDataSources; let i = index"
             [ngClass]="{'bg-info': isPropertyExpanded(i)}" (click)="toggleProperty(i)">{{ property.key }}</div>

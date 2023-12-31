@@ -18,9 +18,19 @@
                 <range-filter [filterRequest]="filterRequest"
                     [rangeProperties]="categorizedProperties.rangeProperties "></range-filter>
             </ng-container>
-            <div class=" d-flex justify-content-end mt-2">
+            <div class="d-flex justify-content-end gap-3 m-2">
                 <sort-filter [filterRequest]="filterRequest" [sortByProperties]="categorizedProperties.allProperties "
                     (filterChange)="onFilterChange()"> </sort-filter>
+                    <div class=" mx-3 ">
+                        <label for="pageSize">PageSize  </label>
+                        <select class="form-control-sm mx-2" [(ngModel)]="pageSize" (change)="onReceivePageNumber(1)">
+                          <option>10</option>
+                          <option>25</option>
+                          <option>50</option>
+                          <option>100</option>
+                        </select>
+                      </div>
+                      
             </div>
             <div class="my-4 ">
                 <ng-container *ngTemplateOutlet="templateToRender"></ng-container>

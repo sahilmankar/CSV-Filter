@@ -31,7 +31,6 @@ public class PagedList : List<dynamic>
             pageSize=10;
         }
         int totalPages = (int)Math.Ceiling(count / (double)pageSize);
-        Console.WriteLine(totalPages);
 
         if (pageNumber <= 0 || (pageNumber > totalPages && totalPages != 0))
         {

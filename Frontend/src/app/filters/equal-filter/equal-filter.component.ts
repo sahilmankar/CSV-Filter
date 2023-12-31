@@ -15,7 +15,7 @@ import { EqualPropertiesDataSource } from 'src/app/filters/EqualPropertiesDataSo
   styleUrls: ['./equal-filter.component.css'],
 })
 export class EqualFilterComponent implements OnInit {
-  searchString: string | undefined='';
+  searchString: string | undefined = '';
 
   @Input() filterRequest!: FilterRequest;
   @Input() equalPropertiesDataSources!: EqualPropertiesDataSource[];
@@ -23,25 +23,22 @@ export class EqualFilterComponent implements OnInit {
   expandedPropertyIndex: number = 0;
 
   ngOnInit() {
-      // this.equalPropertiesDataSources.forEach((item) => {
-      //   item.fetcher(item.key,'').subscribe((res) => {
-      //     item.dataStore = res;
-      //   });
-      // });
+    // this.equalPropertiesDataSources.forEach((item) => {
+    //   item.fetcher(item.key,'').subscribe((res) => {
+    //     item.dataStore = res;
+    //   });
+    // });
   }
 
   refetchDataStore(index: number) {
-    if (this.searchString != undefined ) {
+    if (this.searchString != undefined) {
       this.equalPropertiesDataSources[index]
-        .fetcher(this.equalPropertiesDataSources[index].key,this.searchString)
+        .fetcher(this.equalPropertiesDataSources[index].key, this.searchString)
         .subscribe((res) => {
-         console.log( this.equalPropertiesDataSources[index].key)
           this.equalPropertiesDataSources[index].dataStore = res;
         });
     }
   }
-
-
 
   onCheckboxChange(value: string, index: number) {
     const propertyValues =

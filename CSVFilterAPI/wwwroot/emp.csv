@@ -1,0 +1,31 @@
+EmployeeID,FirstName,LastName,Department,Position,Salary,DateOfBirth
+101,John,Doe,Engineering,Software Engineer,80000,1985-03-15
+102,Jane,Smith,Marketing,Marketing Specialist,60000,1990-07-22
+103,Michael,Johnson,Finance,Financial Analyst,70000,1988-12-10
+104,Emily,Brown,Human Resources,HR Coordinator,55000,1987-05-03
+105,David,Williams,Engineering,Systems Architect,90000,1984-09-28
+106,Amy,Jones,Marketing,Marketing Manager,75000,1992-02-18
+107,Robert,Anderson,Finance,Accountant,65000,1989-11-07
+108,Susan,Miller,Human Resources,HR Manager,80000,1986-06-14
+109,Brian,Thomas,Engineering,DevOps Engineer,85000,1991-04-25
+110,Linda,White,Marketing,Public Relations Specialist,60000,1983-08-30
+111,Christopher,Martin,Finance,Financial Manager,95000,1980-01-12
+112,Karen,Hall,Human Resources,Recruitment Specialist,55000,1993-09-05
+113,Andrew,Young,Engineering,Data Scientist,92000,1982-07-19
+114,Alice,Clark,Marketing,Marketing Coordinator,58000,1994-12-01
+115,Daniel,Baker,Finance,Tax Analyst,72000,1981-03-22
+116,Mary,Johnson,Human Resources,Training Coordinator,50000,1988-10-18
+117,George,Harris,Engineering,Network Engineer,88000,1989-05-07
+118,Olivia,Green,Marketing,Social Media Manager,78000,1986-11-15
+119,William,Wilson,Finance,Internal Auditor,67000,1990-09-28
+120,Grace,Taylor,Human Resources,Compensation Analyst,60000,1984-02-03
+121,Jason,Morris,Engineering,Software Developer,82000,1983-06-27
+122,Sophia,Anderson,Marketing,Event Coordinator,56000,1992-08-14
+123,Matthew,Moore,Finance,Investment Analyst,74000,1987-04-09
+124,Emma,Wright,Human Resources,Employee Relations Specialist,59000,1985-10-31
+125,Ethan,Carter,Engineering,Database Administrator,87000,1991-01-22
+126,Ava,Rogers,Marketing,Graphic Designer,62000,1989-07-08
+127,James,Bell,Finance,Credit Analyst,69000,1982-12-15
+128,Chloe,Hill,Human Resources,HR Assistant,51000,1993-02-28
+129,Nathan,Reed,Engineering,IT Manager,95000,1980-09-14
+130,Isabella,Evans,Marketing,Brand Manager,77000,1986-04-05

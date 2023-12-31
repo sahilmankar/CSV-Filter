@@ -11,8 +11,14 @@
                 </thead>
                 <tbody *ngFor="let record of data">
                     <tr>
-                        <ng-container *ngFor="let heder of columnHeaders">
-                            <td>{{record[heder]}}</td>
+                        <ng-container *ngFor="let header of columnHeaders">
+                           
+                            <td *ngIf="isDateType(record[header])">
+                                {{ record[header] | date }}
+                              </td>
+                              <td *ngIf="!isDateType(record[header])">
+                                {{ record[header] }}
+                              </td>
                         </ng-container>
                     </tr>
                 </tbody>

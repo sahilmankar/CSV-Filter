@@ -130,12 +130,10 @@ public static class QueryableExtensions
         if (!string.IsNullOrEmpty(searchString))
         {
             searchString = searchString.Trim();
-            Console.WriteLine(searchString);
             searchProperty = searchProperty.Trim();
-            Console.WriteLine(searchProperty);
-            query = query.Where($"{searchProperty}.Contains(@0,StringComparison.OrdinalIgnoreCase)", searchString).Select(searchProperty);
+            query = query.Where($"{searchProperty}.Contains(@0,StringComparison.OrdinalIgnoreCase)", searchString).Select(searchProperty).Distinct();
             return query.Take(5);
         }
-       return query.Select(searchProperty).Take(5);
+       return query.Select(searchProperty).Distinct().Take(5);
     }
 }

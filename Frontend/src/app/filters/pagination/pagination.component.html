@@ -1,4 +1,33 @@
-<div class="d-flex justify-content-center" *ngIf="paginationData">
+<!-- <div class="d-flex justify-content-center" *ngIf="paginationData">
 <button class="btn bg-info-subtle mx-3" *ngIf="paginationData.HasPrevious" (click)="onClickPrevious()"> previous</button>
 <button class="btn bg-info-subtle mx-3" *ngIf="paginationData.HasNext" (click)="onClickNext()"> next</button>
+</div> -->
+<div *ngIf="paginationData">
+<nav *ngIf="paginationData.TotalPages > 1" aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+      <li class="page-item" [class.disabled]="paginationData.CurrentPage === 1">
+        <a class="page-link " (click)="goToPage(1)" aria-label="First">
+          <span aria-hidden="true">First</span>
+        </a>
+      </li>
+      <li class="page-item" [class.disabled]="!paginationData.HasPrevious">
+        <a class="page-link" (click)="goToPage(paginationData.CurrentPage - 1)" aria-label="Previous">
+          <span aria-hidden="true">Previous</span>
+        </a>
+      </li>
+      <li class="page-item" *ngFor="let pageNumber of getPageNumbers()" [class.active]="pageNumber ===paginationData.CurrentPage">
+        <a class="page-link" (click)="goToPage(pageNumber)">{{ pageNumber }}</a>
+      </li>
+      <li class="page-item" [class.disabled]="!paginationData.HasNext">
+        <a class="page-link" (click)="goToPage(paginationData.CurrentPage + 1)" aria-label="Next">
+          <span aria-hidden="true">Next</span>
+        </a>
+      </li>
+      <li class="page-item" [class.disabled]="paginationData.CurrentPage === paginationData.TotalPages">
+        <a class="page-link" (click)="goToPage(paginationData.TotalPages)" aria-label="Last">
+          <span aria-hidden="true">Last</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
 </div>

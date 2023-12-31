@@ -7,9 +7,7 @@ public class PropertyHelper
     public static FilterPropertiesList GetAllProperties(Type type)
     {
         PropertyInfo[] propertiesInfo = type.GetProperties();
-        foreach(var prop in type.GetProperties()){
-            Console.WriteLine(prop.Name);
-        }
+      
 
         FilterPropertiesList properties = new FilterPropertiesList()
         {

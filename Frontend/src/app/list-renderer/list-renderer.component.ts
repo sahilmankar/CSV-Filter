@@ -14,4 +14,8 @@ export class ListRendererComponent {
     this.data = changes['data'].currentValue;
     this.columnHeaders = Object.keys(this.data[0]);
   }
+
+  isDateType(value: any): boolean {
+    return value instanceof Date || (typeof value === 'string' && !isNaN(Date.parse(value)));;
+  }
 }
