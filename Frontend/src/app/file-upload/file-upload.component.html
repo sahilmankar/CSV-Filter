@@ -1,0 +1,18 @@
+<body class="container">
+
+    <div class="row my-2">
+        
+        <div class="col">
+            <input type="file" class="form-control" id="csvFile" (change)="onFileSelected($event)" />
+        </div>
+        <div class="col">
+            <button class="btn btn-primary" (click)="onUpload()">Upload</button>
+        </div>
+    </div>
+    
+
+    <div *ngIf="uploadProgress !== null" class="progress my-3">
+        <div class="progress-bar" role="progressbar" [style.width.%]="uploadProgress">
+            {{ uploadProgress }}%
+        </div>
+    </div>

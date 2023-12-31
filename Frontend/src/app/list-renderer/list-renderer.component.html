@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row">
+        <div class="col   rounded-3">
+            <table class="table table-responsive table-bordered w-100">
+                <thead class="thead-dark ">
+                    <tr>
+                        <ng-container *ngFor="let heder of columnHeaders">
+                            <th >{{heder|titlecase}}</th>
+                        </ng-container>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let record of data">
+                    <tr>
+                        <ng-container *ngFor="let heder of columnHeaders">
+                            <td>{{record[heder]}}</td>
+                        </ng-container>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

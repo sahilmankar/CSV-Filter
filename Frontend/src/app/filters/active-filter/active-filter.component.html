@@ -1,0 +1,73 @@
+<div class="text-center"> <b> Filters </b></div>
+
+<div class="w-100 mb-2">
+    <button
+        [ngClass]="{'btn-primary': selectedOption === FilterOption.Equal, 'btn-light': selectedOption !== FilterOption.Equal}"
+        class="btn w-100 mb-2" (click)="selectOption(FilterOption.Equal)">Equal</button>
+
+    <button
+        [ngClass]="{'btn-primary': selectedOption === FilterOption.Range, 'btn-light': selectedOption !== FilterOption.Range}"
+        class="btn w-100 mb-2" (click)="selectOption(FilterOption.Range)">Range</button>
+
+    <button
+        [ngClass]="{'btn-primary': selectedOption === FilterOption.Date, 'btn-light': selectedOption !== FilterOption.Date}"
+        class="btn w-100 mb-2" (click)="selectOption(FilterOption.Date)">Date</button>
+    <div class="d-flex justify-content-evenly">
+        <button class="btn btn-success mb-2" (click)="sendRequest()">Send</button>
+        <button class="btn btn-secondary mb-2" (click)="selectOption(FilterOption.None)">Close Filters</button>
+    </div>
+</div>
+
+
+<div class="text-center"> <b> Active Filters </b></div>
+<a class=" float-end m-1 " style="cursor: pointer;" (click)="clearFilters()">Clear Filters</a>
+
+<div *ngFor="let property of filterRequest.equalFilters; let i = index">
+    <div *ngIf="filterRequest.equalFilters[i].propertyValues.length>0">
+        <div *ngFor="let value of filterRequest.equalFilters[i].propertyValues; let z=index">
+            <div class="btn btn-light d-inline-flex w-100 chover mb-2" (click)="removeEqualFilterProperty(i, z)">
+                <div class="text-danger">
+                    <pre> X </pre>
+                </div>
+                <div> {{filterRequest.equalFilters[i].propertyName}} : {{ value }}</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div *ngFor="let property of filterRequest.dateRangeFilters; let i = index">
+    <div *ngIf="filterRequest.dateRangeFilters[i].fromDate !== '' || filterRequest.dateRangeFilters[i].toDate !== '' ">
+        <div class="btn btn-light d-inline-flex w-100 chover mb-2" (click)="removeFilterProperty('dateRange', i)">
+            <div class="text-danger">
+                <pre> X </pre>
+            </div>
+            <div>
+                {{ filterRequest.dateRangeFilters[i].propertyName }}
+                {{ filterRequest.dateRangeFilters[i].fromDate ? ' from '+ filterRequest.dateRangeFilters[i].fromDate :
+                ':'}}
+                {{ filterRequest.dateRangeFilters[i].toDate ? ' to '+ filterRequest.dateRangeFilters[i].toDate : '' }}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div *ngFor="let property of filterRequest.rangeFilters; let i = index">
+    <div
+        *ngIf="filterRequest.rangeFilters[i].minValue !== undefined || filterRequest.rangeFilters[i].maxValue !== undefined ">
+        <div
+            *ngIf=" filterRequest.rangeFilters[i].minValue !== null || filterRequest.rangeFilters[i].maxValue !== null">
+            <div class="btn btn-light d-inline-flex w-100 chover mb-2" (click)="removeFilterProperty('range', i)">
+                <div class="text-danger">
+                    <pre> X </pre>
+                </div>
+                <div>
+                    {{ filterRequest.rangeFilters[i].propertyName }}
+                    {{ filterRequest.rangeFilters[i].minValue ? filterRequest.rangeFilters[i].minValue +' - ' : ' 0 -'}}
+                    {{ filterRequest.rangeFilters[i].maxValue ? filterRequest.rangeFilters[i].maxValue : '' }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

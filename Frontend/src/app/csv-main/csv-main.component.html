@@ -1,0 +1,9 @@
+<ng-template  #emprender>
+  <app-list-renderer [data]="data"></app-list-renderer>
+</ng-template>
+
+
+<filter-main  [categorizedProperties]="categorizedProperties" [templateToRender]="emprender"
+    [equalPropertiesDataSources]="equalPropertiesDataSources" [filterRequest]="filterRequest"
+    [paginationData]="paginationData" (filterChange)="getFilterData($event)">
+</filter-main>

@@ -1,0 +1,25 @@
+<div class=" row d-flex">
+    <div class="col-2 p-2  text-center card shadow rounded-3  mx-3">
+        <div class=" btn btn-light  my-1  " *ngFor="let property of equalPropertiesDataSources; let i = index"
+            [ngClass]="{'bg-info': isPropertyExpanded(i)}" (click)="toggleProperty(i)">{{ property.key }}</div>
+    </div>
+
+    <div class="col-9 shadow rounded-3 ">
+
+        <ng-container *ngFor="let property of equalPropertiesDataSources;let i=index">
+            <div *ngIf="isPropertyExpanded(i)" class="m-4">
+                <div class="mb-2 ">
+                    <input type="text"  class="form-control-sm" (input)="refetchDataStore(i)" [placeholder]=" 'Search '+property.key +'...'"
+                        [(ngModel)]="searchString">
+                </div>
+                <div *ngFor="let value of equalPropertiesDataSources[i].dataStore">
+                    <label>
+                        <input type="checkbox" [checked]="filterRequest.equalFilters[i].propertyValues.includes(value)"
+                            (change)="onCheckboxChange(value, i)" />
+                        {{ value }}
+                    </label>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>
