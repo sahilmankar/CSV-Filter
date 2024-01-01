@@ -28,5 +28,5 @@ The CSV File Filtering Web Application is a user-friendly tool designed to filte
 
 ## Future Enhancements
 
-- Convert this application in Blazor to run fully on clienside .
+- Convert this application in Blazor to  fully run on clientside .
  
