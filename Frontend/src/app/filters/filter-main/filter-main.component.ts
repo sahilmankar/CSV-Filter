@@ -41,7 +41,7 @@ export class FilterMainComponent {
   }
 
   onFilterChange() {
-    this.filterChange.emit();
+    this.filterChange.emit({ page: 1,pageSize: this.pageSize });
   }
 
   onReceivePageNumber(page: number) {

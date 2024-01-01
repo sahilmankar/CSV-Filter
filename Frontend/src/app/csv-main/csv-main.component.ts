@@ -25,7 +25,7 @@ export class CsvMainComponent {
   };
 
   paginationData: PaginationHeader | null = null;
-
+  
   categorizedProperties!: CategorizedFilterProperties;
 
   equalPropertiesDataSources: EqualPropertiesDataSource[] = [];
@@ -44,7 +44,7 @@ export class CsvMainComponent {
   }
 
   getFilterData(pageInfo:any) {
-    let pageNumber=pageInfo.page;
+    let pageNumber=pageInfo.page ;
     let pageSize=pageInfo.pageSize;
     let newfilterreq = this.filtersvc.removeDefaultFilterValues(
       this.filterRequest
@@ -59,6 +59,7 @@ export class CsvMainComponent {
     this.csvSvc.processFile(filename).subscribe((res) => {
       this.data = res.body ?? [];
       this.paginationData = this.filtersvc.getPaginationHeader(res);
+
       this.csvSvc.getCategorizedProperties().subscribe((res) => {
         this.categorizedProperties = res;
         this.categorizedProperties.equalProperties.forEach((property) => {

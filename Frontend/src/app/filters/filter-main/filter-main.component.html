@@ -1,9 +1,9 @@
 <div *ngIf="categorizedProperties">
     <div class="row">
-        <div class="col-2 card shadow rounded-3 " style="min-height: 100vh;">
+        <div class="col-sm-2 card shadow rounded-3 " style="min-height: 100vh;">
             <active-filter [filterRequest]="filterRequest" (filterChange)="onFilterChange()"></active-filter>
         </div>
-        <div class="col-10">
+        <div class="col-sm-10">
             <ng-container *ngIf="selectedOption === FilterOption.Equal">
                 <equal-filter [filterRequest]="filterRequest" [equalPropertiesDataSources]="equalPropertiesDataSources"
                     (filterChange)="onFilterChange()"></equal-filter>

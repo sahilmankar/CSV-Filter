@@ -1,10 +1,10 @@
-<div class=" row d-flex" *ngIf="equalPropertiesDataSources.length>0">
-    <div class="col-2 p-2  text-center card shadow rounded-3  mx-3">
+<div class=" row d-flex"   *ngIf="equalPropertiesDataSources.length>0">
+    <div class="col-sm-2 p-2  text-center card shadow rounded-3  mx-3">
         <div class=" btn btn-light  my-1  " *ngFor="let property of equalPropertiesDataSources; let i = index"
             [ngClass]="{'bg-info': isPropertyExpanded(i)}" (click)="toggleProperty(i)">{{ property.key }}</div>
     </div>
 
-    <div class="col-9 shadow rounded-3 ">
+    <div class="col-sm-9 p-2 shadow rounded-3 ">
 
         <ng-container *ngFor="let property of equalPropertiesDataSources;let i=index">
             <div *ngIf="isPropertyExpanded(i)" class="m-4">
